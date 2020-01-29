@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>{{ title }}</span>
+    <span class="fill-remaining-space"></span>
+    <span>
+      <product-search></product-search>
+    </span>
+    <span>
+      | <a mat-button [routerLink]="['/products']" (click)="resetProductList()">Products</a>
+    </span>
+    <span>
+      |
+      <a mat-button [routerLink]="['/cart']">
+        <mat-icon>shopping_cart</mat-icon> - {{ this.navService.cart_total_price.toFixed(2) }} ( {{ this.navService.cart_total_quantity.toFixed(2) }} )
+      </a>
+    </span>
+    <span [hidden]="this.navService.isUserActive">
+      | <a mat-button [routerLink]="['/register']">Register</a>
+    </span>
+    <span [hidden]="this.navService.isUserActive">
+      | <a mat-button [routerLink]="['/login']">Login</a>
+    </span>
+    <span [hidden]="!this.navService.isUserActive">
+      | <a mat-button href="javascript:;">Welcome {{ displayName }} <img [hidden]="!photoUrl" src="{{ photoUrl }}" width="30" class="profile-picture" /></a>
+    </span>
+    <span [hidden]="!this.navService.isUserActive">
+      |
+      <a mat-button (click)="doLogout()">
+        <mat-icon>power_settings_new</mat-icon>
+      </a>
+    </span>
+  </mat-toolbar-row>
+</mat-toolbar>

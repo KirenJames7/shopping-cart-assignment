@@ -1,0 +1,22 @@
+mat-grid-tile {
+  border-radius: 5px;
+}
+
+.cart-quantity-totals, .cart-totals {
+}
+
+.cart-quantity-total-label, .cart-total-label {
+  float: left;
+  width: 200px;
+}
+
+.cart-quantity-total, .cart-total {
+  float: left;
+  width: 150px;
+}
+
+.checkout {
+  margin: auto;
+  right: 0;
+  top: 0
+}

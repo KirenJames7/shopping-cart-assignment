@@ -1,0 +1,44 @@
+<div class="card">
+  <div class="product-photo">
+    <img src="{{ photo }}" width="150" />
+  </div>
+  <div class="product-name" align="center">
+    <h3 class="mat-title">{{ name }}</h3>
+  </div>
+  <div class="product-details">
+    <div class="product-info" align="center">
+      <span hidden >{{ doc_id }}</span>
+      <span class="mat-caption">Product Code: {{ id }}</span>
+    </div>
+    <div class="product-rating" align="center">
+      <span class="mat-caption">Likes: {{ likes }} | Dislikes: {{ dislikes }}</span>
+    </div>
+  </div>
+  <div class="product-rate" align="center">
+    <span [hidden]="!this.navService.isUserActive">Rate: </span>
+    <button mat-icon-button mat-raised-button color="primary" [hidden]="!this.navService.isUserActive" (click)="like(doc_id, likes)">
+      <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+    </button>
+    <span class="mat-headline" [hidden]="!this.navService.isUserActive"> | </span>
+    <button mat-icon-button mat-raised-button [hidden]="!this.navService.isUserActive" (click)="dislike(doc_id, dislikes)">
+      <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="product-price" align="center">
+    <h3>{{ price }}</h3>
+  </div>
+  <mat-grid-tile-footer>
+    <div class="product-actions">
+      <button mat-icon-button mat-raised-button color="primary" (click)="addQuantity()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+      <mat-form-field class="product-quantity">
+        <input matInput [value]="quantity" type="text" readonly  class="product-quantity-input"/>
+      </mat-form-field>
+      <button mat-icon-button mat-raised-button (click)="reduceQuantity()">
+        <i class="fa fa-minus" aria-hidden="true"></i>
+      </button>
+      <button mat-raised-button class="product-add" (click)="addToCart(doc_id, quantity)"><mat-icon>add_shopping_cart</mat-icon> | Add to Cart</button>
+    </div>
+  </mat-grid-tile-footer>
+</div>

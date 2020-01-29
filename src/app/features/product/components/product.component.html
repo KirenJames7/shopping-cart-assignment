@@ -1,0 +1,11 @@
+<mat-progress-bar mode="indeterminate" [hidden]="this.productService.products"></mat-progress-bar>
+<mat-card>
+  <mat-card-title align="center">Product List</mat-card-title>
+  <div class="container-fluid">
+    <mat-grid-list cols="5" rowHeight="1:1.5" gutterSize="20px">
+      <mat-grid-tile *ngFor="let product of this.productService.products" class="mat-elevation-z8">
+        <product-card doc_id="{{ product.doc_id }}" id="{{ product.product.id }}" name="{{ product.product.name }}" photo="{{ product.product.photo }}" price="{{ product.product.price.toFixed(2) }}" likes="{{ product.product.likes }}" dislikes="{{ product.product.dislikes }}"></product-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</mat-card>
